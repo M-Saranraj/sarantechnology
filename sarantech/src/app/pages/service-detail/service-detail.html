@@ -1,0 +1,49 @@
+@if (service) {
+  <section class="page-header">
+    <div class="container">
+      <a routerLink="/services" class="back-link">← All services</a>
+      <div class="header-row">
+        <app-icon [name]="service.icon" [size]="34" />
+        <h1>{{ service.name }}</h1>
+      </div>
+      <p class="subtitle">{{ service.shortDescription }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container detail-grid">
+      <div class="detail-copy">
+        <h2>What this covers</h2>
+        <p>{{ service.longDescription }}</p>
+
+        <h3>Examples</h3>
+        <ul class="use-cases">
+          @for (u of service.useCases; track u) {
+            <li>{{ u }}</li>
+          }
+        </ul>
+      </div>
+
+      <aside class="cta-card bracket">
+        <h3>Discuss your requirement</h3>
+        <p>Tell us about your business and what you need — we'll get back to you with next steps.</p>
+        <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn--primary">Chat on WhatsApp</a>
+        <a routerLink="/contact" class="btn btn--outline">Use the contact form</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--paper-raised">
+    <div class="container">
+      <h2>Other services</h2>
+      <div class="other-grid">
+        @for (s of otherServices; track s.slug) {
+          <a [routerLink]="['/services', s.slug]" class="other-card bracket">
+            <app-icon [name]="s.icon" [size]="22" />
+            <span>{{ s.name }}</span>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+}

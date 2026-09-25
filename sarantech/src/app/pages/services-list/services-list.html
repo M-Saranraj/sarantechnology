@@ -1,0 +1,25 @@
+<app-page-header
+  kicker="Services"
+  title="Services built around your business"
+  subtitle="Every business is different, so we start with your requirement, not a fixed package. Here's what we typically build."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="grid">
+      @for (s of services; track s.slug) {
+        <article class="card bracket">
+          <app-icon [name]="s.icon" [size]="28" />
+          <h2>{{ s.name }}</h2>
+          <p>{{ s.shortDescription }}</p>
+          <ul class="use-cases">
+            @for (u of s.useCases; track u) {
+              <li>{{ u }}</li>
+            }
+          </ul>
+          <a [routerLink]="['/services', s.slug]" class="card-link">Learn more →</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

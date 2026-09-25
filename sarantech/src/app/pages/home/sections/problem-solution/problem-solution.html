@@ -1,0 +1,17 @@
+<section class="section section--paper-raised">
+  <div class="container">
+    <p class="kicker">What we solve</p>
+    <h2>Your business problem. Our digital solution.</h2>
+    <p class="section-intro">Whatever stage your business is at, there's usually a straightforward digital way to solve it.</p>
+
+    <div class="pairs">
+      @for (pair of pairs; track pair.problem) {
+        <div class="pair">
+          <p class="problem">"{{ pair.problem }}"</p>
+          <div class="arrow" aria-hidden="true">↓</div>
+          <p class="solution">{{ pair.solution }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

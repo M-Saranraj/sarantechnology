@@ -1,0 +1,31 @@
+<app-page-header
+  kicker="Projects"
+  title="A few things we've built"
+  subtitle="A mix of client, professional and personal work. Each project is labelled honestly — nothing here is a fabricated client or testimonial."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="list">
+      @for (p of projects; track p.slug) {
+        <article class="project bracket">
+          <div class="project-head">
+            <span class="type">{{ p.type }}</span>
+            <h2>{{ p.name }}</h2>
+          </div>
+          <p>{{ p.description }}</p>
+          <ul class="tech">
+            @for (t of p.technologies; track t) {
+              <li>{{ t }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+
+    <div class="cta">
+      <p>Want to see something like this built for your business?</p>
+      <a routerLink="/contact" class="btn btn--primary">Start Your Project</a>
+    </div>
+  </div>
+</section>

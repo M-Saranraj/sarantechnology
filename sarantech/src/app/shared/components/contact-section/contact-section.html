@@ -1,0 +1,91 @@
+<div class="contact-inner">
+  <div class="intro">
+    <p class="kicker">Get in touch</p>
+    <h2>Have an idea? Let's build it.</h2>
+    <p>Tell us what you need. We'll discuss your requirements and help you choose the right solution.</p>
+
+    <div class="direct-options">
+      <a [href]="whatsappUrl" target="_blank" rel="noopener" class="direct-option">
+        <app-icon name="whatsapp" [size]="20" />
+        <span>Chat on WhatsApp</span>
+      </a>
+      <a [href]="telUrl" class="direct-option">
+        <app-icon name="phone" [size]="20" />
+        <span>Call Now</span>
+      </a>
+      <a [href]="mailUrl" class="direct-option">
+        <app-icon name="mail" [size]="20" />
+        <span>Send an Email</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="form-wrap bracket">
+    @if (!submitted()) {
+      <form [formGroup]="form" (ngSubmit)="prepareMessage()" novalidate>
+        <div class="field-row">
+          <label class="field">
+            <span>Name *</span>
+            <input type="text" formControlName="name" autocomplete="name" />
+          </label>
+          <label class="field">
+            <span>Business Name</span>
+            <input type="text" formControlName="businessName" autocomplete="organization" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Phone *</span>
+            <input type="tel" formControlName="phone" autocomplete="tel" />
+          </label>
+          <label class="field">
+            <span>Email *</span>
+            <input type="email" formControlName="email" autocomplete="email" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Location</span>
+            <input type="text" formControlName="location" placeholder="City" />
+          </label>
+          <label class="field">
+            <span>What do you need? *</span>
+            <select formControlName="serviceNeeded">
+              <option value="" disabled selected>Select a service</option>
+              @for (s of services; track s.slug) {
+                <option [value]="s.name">{{ s.name }}</option>
+              }
+              <option value="Other">Other</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Approximate Budget</span>
+          <input type="text" formControlName="budget" placeholder="e.g. ₹20,000 – ₹50,000" />
+        </label>
+
+        <label class="field">
+          <span>Project Description *</span>
+          <textarea formControlName="description" rows="4" placeholder="Tell us a bit about your business and what you need."></textarea>
+        </label>
+
+        <button type="submit" class="btn btn--primary">Prepare My Enquiry</button>
+        <p class="form-note">No account or sign-up needed. This prepares a message you send yourself via WhatsApp, SMS or email — nothing is sent automatically.</p>
+      </form>
+    } @else {
+      <div class="confirm">
+        <h3>Your enquiry is ready</h3>
+        <p>Choose how you'd like to send it — it'll open pre-filled, and you send it yourself.</p>
+        <div class="confirm-options">
+          <a [href]="links()!.wa" target="_blank" rel="noopener" class="btn btn--primary"><app-icon name="whatsapp" [size]="18" /> Send via WhatsApp</a>
+          <a [href]="links()!.sms" class="btn btn--outline"><app-icon name="phone" [size]="18" /> Send via SMS</a>
+          <a [href]="links()!.mail" class="btn btn--outline"><app-icon name="mail" [size]="18" /> Send via Email</a>
+        </div>
+        <button type="button" class="edit-link" (click)="editAgain()">Edit details</button>
+      </div>
+    }
+  </div>
+</div>

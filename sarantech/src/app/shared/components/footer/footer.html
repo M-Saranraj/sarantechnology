@@ -1,0 +1,46 @@
+<footer class="site-footer">
+  <div class="container grid">
+    <div class="col-brand">
+      <a routerLink="/" class="logo">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        <span class="logo-text">{{ config.businessName }}</span>
+      </a>
+      <p>{{ config.tagline }}</p>
+      <div class="socials">
+        <a [href]="whatsappUrl" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><app-icon name="whatsapp" [size]="18" /></a>
+        <a [href]="mailUrl" aria-label="Email SaranTech"><app-icon name="mail" [size]="18" /></a>
+      </div>
+    </div>
+
+    <div class="col">
+      <h3>Services</h3>
+      <ul>
+        @for (s of services; track s.slug) {
+          <li><a [routerLink]="['/services', s.slug]">{{ s.name }}</a></li>
+        }
+      </ul>
+    </div>
+
+    <div class="col">
+      <h3>Company</h3>
+      <ul>
+        <li><a routerLink="/projects">Projects</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/faq">FAQ</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h3>Contact</h3>
+      <ul class="contact-list">
+        <li><app-icon name="pin" [size]="16" /><span>{{ config.location }}</span></li>
+        <li><app-icon name="mail" [size]="16" /><a [href]="mailUrl">{{ config.email }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container bottom">
+    <p>© {{ year }} {{ config.businessName }}. All rights reserved.</p>
+  </div>
+</footer>

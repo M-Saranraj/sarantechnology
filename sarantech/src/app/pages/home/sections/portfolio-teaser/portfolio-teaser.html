@@ -1,0 +1,26 @@
+<section class="section" id="projects">
+  <div class="container">
+    <div class="head-row">
+      <div>
+        <p class="kicker">Recent work</p>
+        <h2>A few things we've built</h2>
+      </div>
+      <a routerLink="/projects" class="btn btn--outline btn--sm see-all">See all projects</a>
+    </div>
+
+    <div class="grid">
+      @for (p of projects; track p.slug) {
+        <article class="card bracket">
+          <span class="type">{{ p.type }}</span>
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.summary }}</p>
+          <ul class="tech">
+            @for (t of p.technologies; track t) {
+              <li>{{ t }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

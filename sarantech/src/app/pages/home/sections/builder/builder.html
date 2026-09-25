@@ -1,0 +1,35 @@
+<section class="section section--paper-raised">
+  <div class="container">
+    <p class="kicker">Not sure where to start?</p>
+    <h2>What can we build for you?</h2>
+
+    <div class="builder">
+      <div class="options" role="listbox" aria-label="What do you need?">
+        @for (opt of options; track opt.label) {
+          <button
+            type="button"
+            class="option"
+            [class.active]="selected().label === opt.label"
+            (click)="select(opt)"
+            role="option"
+            [attr.aria-selected]="selected().label === opt.label"
+          >
+            <app-icon [name]="opt.icon" [size]="20" />
+            <span>{{ opt.label }}</span>
+          </button>
+        }
+      </div>
+
+      <div class="answer bracket">
+        <p class="answer-label">I need…</p>
+        <h3>{{ selected().label }}</h3>
+        <p>{{ selected().explanation }}</p>
+        @if (selected().serviceSlug) {
+          <a [routerLink]="['/services', selected().serviceSlug]" class="btn btn--outline btn--sm">Discuss This Project</a>
+        } @else {
+          <a routerLink="/contact" class="btn btn--outline btn--sm">Discuss This Project</a>
+        }
+      </div>
+    </div>
+  </div>
+</section>

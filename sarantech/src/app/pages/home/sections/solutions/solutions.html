@@ -1,0 +1,16 @@
+<section class="section section--paper-raised" id="solutions">
+  <div class="container">
+    <p class="kicker">Who we work with</p>
+    <h2>Solutions built around your business</h2>
+    <p class="section-intro">Every business is different, so every solution is customized to your requirement — these are the kinds of businesses we typically work with.</p>
+
+    <div class="grid">
+      @for (g of groups; track g.name) {
+        <div class="group">
+          <h3>{{ g.name }}</h3>
+          <p>{{ g.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

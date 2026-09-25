@@ -1,0 +1,23 @@
+<section class="section" id="services">
+  <div class="container">
+    <p class="kicker">What we build</p>
+    <h2>Services built around your business</h2>
+    <p class="section-intro">From a simple business website to custom software, pick what fits — or tell us your requirement and we'll figure out the right mix.</p>
+
+    <div class="grid">
+      @for (s of services; track s.slug) {
+        <article class="card bracket">
+          <app-icon [name]="s.icon" [size]="26" />
+          <h3>{{ s.name }}</h3>
+          <p>{{ s.shortDescription }}</p>
+          <ul class="use-cases">
+            @for (u of s.useCases.slice(0, 3); track u) {
+              <li>{{ u }}</li>
+            }
+          </ul>
+          <a [routerLink]="['/services', s.slug]" class="card-link">Discuss your requirement →</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

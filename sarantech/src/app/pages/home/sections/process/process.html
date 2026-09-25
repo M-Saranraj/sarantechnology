@@ -1,0 +1,16 @@
+<section class="section section--blueprint" id="process">
+  <div class="container">
+    <p class="kicker">How we work</p>
+    <h2>A clear, six-step process</h2>
+
+    <ol class="timeline">
+      @for (step of steps; track step.num) {
+        <li>
+          <span class="num">{{ step.num }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

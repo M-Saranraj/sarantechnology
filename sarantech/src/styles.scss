@@ -1,0 +1,193 @@
+/* ==========================================================================
+   SaranTech — Global Design Tokens
+   Design concept: "Blueprint" — the precision of an engineering drawing
+   meets the warmth of a local business relationship. Cool paper background,
+   deep blueprint-navy ink, brass accent for calls to action and warmth.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --paper: #eef1f6;
+  --paper-raised: #ffffff;
+  --ink: #101425;
+  --ink-soft: #4b5468;
+  --line: #c4cddc;
+  --line-strong: #8b98b3;
+  --blueprint: #1d3a6e;
+  --blueprint-deep: #0f2247;
+  --blueprint-tint: #e4eaf5;
+  --brass: #b9782b;
+  --brass-deep: #96601f;
+  --brass-tint: #f4e6d0;
+  --signal-green: #3f7a5c;
+
+  /* Type */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --content-width: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --radius-sm: 3px;
+  --radius-md: 6px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.25rem, 4.2vw, 3.75rem); font-weight: 700; }
+h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+h3 { font-size: clamp(1.15rem, 1.6vw, 1.375rem); }
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+a { color: inherit; }
+img, svg { max-width: 100%; display: block; }
+button, input, textarea, select { font-family: inherit; font-size: 1rem; }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section--tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
+
+.section--paper-raised {
+  background: var(--paper-raised);
+  border-block: 1px solid var(--line);
+}
+
+.section--blueprint {
+  background: var(--blueprint-deep);
+  color: #eef1f6;
+}
+.section--blueprint p { color: #b9c4dc; }
+.section--blueprint h1, .section--blueprint h2, .section--blueprint h3 { color: #ffffff; }
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--brass-deep);
+  margin-bottom: 0.9em;
+}
+.kicker::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--brass);
+}
+.section--blueprint .kicker { color: #e2b06a; }
+.section--blueprint .kicker::before { background: #e2b06a; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.85em 1.5em;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s var(--ease), background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary { background: var(--brass); color: #fff9f0; }
+.btn--primary:hover { background: var(--brass-deep); }
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+.btn--outline:hover { border-color: var(--blueprint); color: var(--blueprint); }
+
+.btn--ghost-light {
+  background: transparent;
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+}
+.btn--ghost-light:hover { border-color: #fff; }
+
+.btn--sm { padding: 0.6em 1.1em; font-size: 0.875rem; }
+
+.bracket {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+}
+.bracket::before, .bracket::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--brass);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+.bracket::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.bracket::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+.bracket:hover::before, .bracket:hover::after,
+.bracket:focus-within::before, .bracket:focus-within::after { opacity: 1; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

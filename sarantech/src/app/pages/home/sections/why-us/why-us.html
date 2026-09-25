@@ -1,0 +1,18 @@
+<section class="section">
+  <div class="container">
+    <p class="kicker">Why SaranTech</p>
+    <h2>A straightforward way to work with a developer</h2>
+
+    <div class="grid">
+      @for (r of reasons; track r.title) {
+        <div class="reason">
+          <app-icon name="check" [size]="18" />
+          <div>
+            <h3>{{ r.title }}</h3>
+            <p>{{ r.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

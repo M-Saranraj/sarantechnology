@@ -1,0 +1,44 @@
+<app-page-header
+  kicker="About"
+  title="Software built by someone you can actually talk to"
+/>
+
+<section class="section">
+  <div class="container about-grid">
+    <div class="copy">
+      <p>
+        SaranTech is run by {{ config.founderName }}, a software developer based in
+        {{ config.location }} who builds websites, web applications and custom
+        software for small and growing businesses.
+      </p>
+      <p>
+        The work spans both sides of a project — frontend interfaces people
+        actually use, and the backend systems that keep them running — on
+        modern, well-supported technology. There's no account manager or
+        layer of sales process between you and the person building your
+        solution; you explain the problem, and we work through the solution
+        together.
+      </p>
+      <p>
+        SaranTech does not publish fixed statistics, team counts or client
+        logos here — those details aren't invented for the sake of it. What
+        you can see is the actual technology used and the projects built
+        with it.
+      </p>
+    </div>
+
+    <aside class="stack-card bracket">
+      <h3>Technologies</h3>
+      <ul>
+        @for (t of stack; track t) {
+          <li>{{ t }}</li>
+        }
+      </ul>
+    </aside>
+  </div>
+
+  <div class="container cta">
+    <p>Have a business problem you think software could solve?</p>
+    <a routerLink="/contact" class="btn btn--primary">Start Your Project</a>
+  </div>
+</section>

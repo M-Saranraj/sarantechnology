@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container">
+    <div class="head-row">
+      <div>
+        <p class="kicker">Common questions</p>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <a routerLink="/faq" class="btn btn--outline btn--sm">View all FAQs</a>
+    </div>
+
+    <div class="faq-list">
+      @for (item of faqs; track item.question; let i = $index) {
+        <div class="faq-item">
+          <button type="button" class="faq-q" (click)="toggle(i)" [attr.aria-expanded]="openIndex() === i">
+            <span>{{ item.question }}</span>
+            <span class="plus" aria-hidden="true">{{ openIndex() === i ? '−' : '+' }}</span>
+          </button>
+          @if (openIndex() === i) {
+            <p class="faq-a">{{ item.answer }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

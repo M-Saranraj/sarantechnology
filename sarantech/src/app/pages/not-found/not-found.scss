@@ -1,0 +1,6 @@
+.not-found {
+  text-align: left;
+  padding-block: clamp(4rem, 12vw, 8rem);
+}
+.not-found h1 { max-width: 16ch; }
+.not-found p { max-width: 46ch; margin-bottom: 1.5rem; }
