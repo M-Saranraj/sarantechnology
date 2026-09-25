@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "postbuild": "cp dist/sarantech/browser/404/index.html dist/sarantech/browser/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "npm run build && wrangler deploy",
